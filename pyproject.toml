@@ -1,0 +1,28 @@
+[project]
+name = "agentic-travel-platform"
+version = "0.1.0"
+description = "Agentic travel platform"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic-settings",
+    "pytest",
+    "langchain-community",
+    "langchain-text-splitters",
+    "sentence-transformers",
+    "qdrant-client",
+    "langchain-openai",
+]
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

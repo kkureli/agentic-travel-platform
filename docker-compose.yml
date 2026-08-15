@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: travelmind-postgres
+    environment:
+      POSTGRES_USER: travelmind
+      POSTGRES_PASSWORD: travelmind
+      POSTGRES_DB: travelmind
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: travelmind-qdrant
+    ports:
+      - "6337:6333"
+      - "6338:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  redis:
+    image: redis:7
+    container_name: travelmind-redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+
+  neo4j:
+    image: neo4j:5
+    container_name: travelmind-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/travelmind123
+    ports:
+      - "7475:7474"
+      - "7688:7687"
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  postgres_data:
+  qdrant_data:
+  redis_data:
+  neo4j_data:
