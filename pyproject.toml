@@ -18,6 +18,8 @@ dependencies = [
     "langchain-qdrant",
     "fastembed",
     "datasets",
+    "langgraph",
+    "python-dotenv",
 ]
 [build-system]
 requires = ["setuptools>=61"]
