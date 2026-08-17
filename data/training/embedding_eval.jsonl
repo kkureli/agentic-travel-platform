@@ -1,0 +1,10 @@
+{"query":"Is there any way to get money back from a hotel rate marked non-refundable?","positive_chunk_ids":["b6a59c53-4e46-5f3b-aa98-249015150107","d746b198-f217-56af-a3e1-30b7d4abc82b"]}
+{"query":"The property cancelled my stay. Do I receive my payment back?","positive_chunk_ids":["d746b198-f217-56af-a3e1-30b7d4abc82b"]}
+{"query":"My refund was approved but I still cannot see the money in my account.","positive_chunk_ids":["6edf77d2-29a3-5033-b870-6e5eff379ecf","55552b2d-8378-581a-be98-92da49ca2c47"]}
+{"query":"I booked a non-refundable room but need different travel dates.","positive_chunk_ids":["74acf93d-5f6a-5a2e-af4a-f32073da439f","5c3a23cd-2f6e-514a-8939-07346973f86e"]}
+{"query":"I missed my check-in and never arrived at the property. What can the hotel do?","positive_chunk_ids":["6b5941ef-4c9b-5fe6-9f29-f2f17c056b35","7705f24a-38ab-596d-a40c-7f2991bbd6a8","d8682295-1e96-5126-b277-65cddd51f6e4"]}
+{"query":"I simply don't want to travel anymore. Will my insurance pay for the cancellation?","positive_chunk_ids":["cb4cccfd-68f0-59cf-85b4-b69393857f00"]}
+{"query":"I got sick while already on holiday and have to return home early.","positive_chunk_ids":["f57d2d7c-9205-5845-aa92-a5c2eade8e28"]}
+{"query":"Will the points from a booking remain after the reservation is fully refunded?","positive_chunk_ids":["35673801-ca5b-5ca8-839e-12f5bc822c3d"]}
+{"query":"Which documents might the hotel ask me to show when I arrive?","positive_chunk_ids":["fc4cf738-0695-5bde-a7ea-a44260352515","5d0b8c76-4a6e-581b-8855-53f4cf26c408","5c3a23cd-2f6e-514a-8939-07346973f86e"]}
+{"query":"I think my card was charged twice for one booking.","positive_chunk_ids":["4d24fde0-cd64-5e33-91e2-c3a81c3d1afb"]}

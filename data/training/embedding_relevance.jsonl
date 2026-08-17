@@ -1,0 +1,15 @@
+{"query":"Can a non-refundable hotel reservation be refunded?","positive_chunk_ids":["b6a59c53-4e46-5f3b-aa98-249015150107","d746b198-f217-56af-a3e1-30b7d4abc82b"]}
+{"query":"What happens if the hotel cancels my reservation?","positive_chunk_ids":["d746b198-f217-56af-a3e1-30b7d4abc82b"]}
+{"query":"How long does an approved hotel refund take to arrive?","positive_chunk_ids":["6edf77d2-29a3-5033-b870-6e5eff379ecf","55552b2d-8378-581a-be98-92da49ca2c47"]}
+{"query":"Can I change the dates of a non-refundable reservation?","positive_chunk_ids":["74acf93d-5f6a-5a2e-af4a-f32073da439f","5c3a23cd-2f6e-514a-8939-07346973f86e"]}
+{"query":"What happens if I do not show up for my hotel reservation?","positive_chunk_ids":["6b5941ef-4c9b-5fe6-9f29-f2f17c056b35","7705f24a-38ab-596d-a40c-7f2991bbd6a8"]}
+{"query":"Does travel insurance cover cancelling because I changed my mind?","positive_chunk_ids":["cb4cccfd-68f0-59cf-85b4-b69393857f00"]}
+{"query":"What if I become ill after my trip has already started?","positive_chunk_ids":["f57d2d7c-9205-5845-aa92-a5c2eade8e28","01977d76-c04f-5374-b832-5ae5b9111820"]}
+{"query":"Do I keep loyalty points if my hotel booking is refunded?","positive_chunk_ids":["35673801-ca5b-5ca8-839e-12f5bc822c3d"]}
+{"query":"Can loyalty points make a non-refundable hotel reservation refundable?","positive_chunk_ids":["35673801-ca5b-5ca8-839e-12f5bc822c3d","752d6772-febc-5d9a-ba19-cc763e0d1497"]}
+{"query":"What identification do I need when checking into a hotel?","positive_chunk_ids":["fc4cf738-0695-5bde-a7ea-a44260352515","5d0b8c76-4a6e-581b-8855-53f4cf26c408","5c3a23cd-2f6e-514a-8939-07346973f86e"]}
+{"query":"What should I do if I will arrive late to the hotel?","positive_chunk_ids":["fc4cf738-0695-5bde-a7ea-a44260352515","0b51eb0a-89cd-58ee-9a4c-514b8b65c6d1","d8682295-1e96-5126-b277-65cddd51f6e4"]}
+{"query":"Can customer support make an exception to a refund policy?","positive_chunk_ids":["54194770-5a3d-51bc-a5a8-579328436dd6","aab38e55-43ea-5fa3-b9ef-c204d2b271f0","d746b198-f217-56af-a3e1-30b7d4abc82b"]}
+{"query":"Does escalation guarantee that I will receive a refund?","positive_chunk_ids":["aab38e55-43ea-5fa3-b9ef-c204d2b271f0","54194770-5a3d-51bc-a5a8-579328436dd6","7705f24a-38ab-596d-a40c-7f2991bbd6a8"]}
+{"query":"Can travel insurance reimburse a non-refundable hotel booking?","positive_chunk_ids":["e3c88937-f84d-51fc-9a76-8571c9aee3da","2bdf7fd6-0831-5e74-b620-28e5d4f8876f"]}
+{"query":"What happens if I was charged twice for the same hotel reservation?","positive_chunk_ids":["4d24fde0-cd64-5e33-91e2-c3a81c3d1afb"]}

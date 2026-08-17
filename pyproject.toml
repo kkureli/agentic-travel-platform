@@ -14,7 +14,10 @@ dependencies = [
     "sentence-transformers",
     "qdrant-client",
     "langchain-openai",
-    "rank-bm25"
+    "rank-bm25",
+    "langchain-qdrant",
+    "fastembed",
+    "datasets",
 ]
 [build-system]
 requires = ["setuptools>=61"]

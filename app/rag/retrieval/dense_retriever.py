@@ -1,5 +1,5 @@
 from langchain_core.documents import Document
-from sentence_transformers import util
+from sentence_transformers.util import cos_sim
 
 from app.rag.embeddings.sentence_transformer import (
     SentenceTransformerEmbeddingService,
@@ -15,26 +15,43 @@ class DenseRetriever:
         self.documents = documents
         self.embedding_service = embedding_service
 
-        self.document_embeddings = self.embedding_service.model.encode(
-            [document.page_content for document in documents],
-            convert_to_tensor=True,
+        self.document_embeddings = self.embedding_service.embed_documents(
+            [document.page_content for document in documents]
         )
 
-    def search(
+    def search_with_scores(
         self,
         query: str,
-        top_k: int = 3,
-    ) -> list[Document]:
-        query_embedding = self.embedding_service.model.encode(
-            query,
-            convert_to_tensor=True,
-        )
+        top_k: int = 5,
+    ) -> list[tuple[Document, float]]:
+        query_embedding = self.embedding_service.embed_query(query)
 
-        similarities = util.cos_sim(
+        similarities = cos_sim(
             query_embedding,
             self.document_embeddings,
         )[0]
 
         ranked_indices = similarities.argsort(descending=True)[:top_k]
 
-        return [self.documents[index] for index in ranked_indices]
+        results: list[tuple[Document, float]] = []
+
+        for index in ranked_indices:
+            document = self.documents[int(index)]
+
+            score = float(similarities[index])
+
+            results.append((document, score))
+
+        return results
+
+    def search(
+        self,
+        query: str,
+        top_k: int = 5,
+    ) -> list[Document]:
+        results = self.search_with_scores(
+            query=query,
+            top_k=top_k,
+        )
+
+        return [document for document, _ in results]

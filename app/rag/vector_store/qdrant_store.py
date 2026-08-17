@@ -1,67 +1,61 @@
-from langchain_core.documents import Document
 from qdrant_client import QdrantClient, models
 
-from app.core.config import get_settings
+DENSE_VECTOR_NAME = "dense"
+SPARSE_VECTOR_NAME = "bm25"
 
 COLLECTION_NAME = "travel_knowledge"
-VECTOR_SIZE = 384
+
+DENSE_VECTOR_SIZE = 384
 
 
-class QdrantVectorStore:
-    def __init__(self):
-        settings = get_settings()
-
+class QdrantStore:
+    def __init__(
+        self,
+        url: str = "http://localhost:6337",
+        collection_name: str = COLLECTION_NAME,
+    ):
         self.client = QdrantClient(
-            url=settings.qdrant_url,
+            url=url,
         )
 
-    def create_collection(self) -> None:
-        if self.client.collection_exists(COLLECTION_NAME):
-            return
+        self.collection_name = collection_name
+
+    def recreate_collection(self) -> None:
+        if self.client.collection_exists(self.collection_name):
+            self.client.delete_collection(self.collection_name)
 
         self.client.create_collection(
-            collection_name=COLLECTION_NAME,
-            vectors_config=models.VectorParams(
-                size=VECTOR_SIZE,
-                distance=models.Distance.COSINE,
-            ),
+            collection_name=self.collection_name,
+            vectors_config={
+                DENSE_VECTOR_NAME: models.VectorParams(
+                    size=DENSE_VECTOR_SIZE,
+                    distance=models.Distance.COSINE,
+                ),
+            },
+            sparse_vectors_config={
+                SPARSE_VECTOR_NAME: models.SparseVectorParams(
+                    modifier=models.Modifier.IDF,
+                ),
+            },
         )
 
-    def index_documents(
+        self._create_payload_indexes()
+
+    def _create_payload_indexes(
         self,
-        documents: list[Document],
-        embeddings: list[list[float]],
     ) -> None:
-        points = []
+        keyword_fields = [
+            "tenant_id",
+            "document_id",
+            "chunk_id",
+            "source",
+            "language",
+            "document_type",
+        ]
 
-        for index, (document, embedding) in enumerate(zip(documents, embeddings)):
-            point = models.PointStruct(
-                id=index,
-                vector=embedding,
-                payload={
-                    "text": document.page_content,
-                    "metadata": document.metadata,
-                },
+        for field in keyword_fields:
+            self.client.create_payload_index(
+                collection_name=self.collection_name,
+                field_name=field,
+                field_schema=(models.PayloadSchemaType.KEYWORD),
             )
-
-            points.append(point)
-
-        self.client.upsert(
-            collection_name=COLLECTION_NAME,
-            points=points,
-            wait=True,
-        )
-
-    def search(
-        self,
-        query_vector: list[float],
-        limit: int = 3,
-    ):
-        result = self.client.query_points(
-            collection_name=COLLECTION_NAME,
-            query=query_vector,
-            limit=limit,
-            with_payload=True,
-        )
-
-        return result.points

@@ -8,6 +8,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     app_name: str = "Agentic Travel Platform"
     environment: str = "development"
+    embedding_model_path: str = "models/travel-embedding-triplet-v1/final"
 
     database_url: str
     qdrant_url: str
